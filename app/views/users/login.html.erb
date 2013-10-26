@@ -41,21 +41,29 @@ body {
 }
 </style>
 
+<script>
+function login()
+{
+  var email = $("#email").val();
+  var password = $("#password").val();
+  $.ajax({
+      type: "POST",
+      url: "/users/login",
+      data: "email=" + email + "&password="+ password, 
+      dataType: "json",   
+      success:function(json){
+        console.log(json);
+      }
+    });
+}
+</script>
 
-
-<form class="form-signin" action='/users/create' autocomplete="off" method='POST'>
-  <h2 class="form-signin-heading">Sign up</h2>
-  <!-- ADD HERE THE PATIENTS ID IF IT CAME FROM A REFERRAL -->
-  <input type="text" name="name" class="form-control" placeholder="Name" id="name" autofocus>
+<form class="form-signin" action='/users/login' autocomplete="off" method='POST'>
+  <h2 class="form-signin-heading">Please sign in</h2>
   <input type="text" name="email" class="form-control" placeholder="Email address" id="email" autofocus>
-  <input type="text" name="phone" class="form-control" placeholder="Phone number" id="phone" autofocus>
   <input type="password" name="password" id="password" class="form-control" placeholder="Password">
   <label class="checkbox">
-    <input type="checkbox" value="remember-me"> Check if remote caregiver?
+    <input type="checkbox" value="remember-me"> Remember me
   </label>
-  <label class="checkbox">
-    Relationship with the patient?
-     <input type="text" name="relationship" class="form-control" placeholder="Spouse/Child/Family/Friend/HealthCareProfessional?" id="relationship" autofocus>
-  </label>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>

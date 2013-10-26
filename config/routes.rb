@@ -2,6 +2,7 @@ Red::Application.routes.draw do
   resources :patients
   get "users/signup" => "users#signup"
   post "users/login" => "users#login"
+  post "users/create" => "users#create"
 
 
   # The priority is based upon order of creation:
