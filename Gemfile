@@ -5,7 +5,7 @@ gem 'rails', '3.2.14'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'mandrill-api'
 gem 'sqlite3'
 
 

@@ -1,9 +1,11 @@
 Red::Application.routes.draw do
   resources :patients
-  get "users/signup" => "users#signup"
-  post "users/login" => "users#login"
+  get "signup" => "users#signup"
+  post "users/login" => "users#do_login"
+  get "login" =>  "users#login"
   post "users/create" => "users#create"
-
+  get "users/invite" => "users#invite"
+  post "users/send_invitation" => "users#send_invitation"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

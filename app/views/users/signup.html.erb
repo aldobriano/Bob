@@ -1,6 +1,6 @@
 <style>
 body {
-  padding-top: 40px;
+  
   padding-bottom: 40px;
   background-color: #eee;
 }
@@ -40,12 +40,16 @@ body {
   border-top-right-radius: 0;
 }
 </style>
-
-
+<% if @patient.present? %>
+  <h2> Be an informed caregiver, help <%= @patient.name %> live his life to the fullest </h2>
+<% end %>
 
 <form class="form-signin" action='/users/create' autocomplete="off" method='POST'>
   <h2 class="form-signin-heading">Sign up</h2>
   <!-- ADD HERE THE PATIENTS ID IF IT CAME FROM A REFERRAL -->
+  <% if @patient.present? %>
+    <input type='hidden' name='patient_id' value='<%= @patient.id %>' />
+  <% end %>
   <input type="text" name="name" class="form-control" placeholder="Name" id="name" autofocus>
   <input type="text" name="email" class="form-control" placeholder="Email address" id="email" autofocus>
   <input type="text" name="phone" class="form-control" placeholder="Phone number" id="phone" autofocus>

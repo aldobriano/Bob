@@ -24,6 +24,7 @@ class PatientsController < ApplicationController
   # GET /patients/new
   # GET /patients/new.json
   def new
+
     @patient = Patient.new
 
     respond_to do |format|
@@ -40,11 +41,20 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(params[:patient])
+    
+    @patient = Patient.new(:name => params[:name], :age => params[:age], :email => params[:email], :phone => params[:phone], :mobile => params[:mobile], :gender => params[:gender])
+
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        caregiver = User.find_by_id(params[:caregiver_id]) || current_user
+        caregiver.patient_id = @patient.id
+        caregiver.save!
+
+        #### invite more caregivers screen ###
+
+
+        format.html { redirect_to "/users/invite?patient_id=" + @patient.id.to_s, notice: 'Patient was successfully created.' }
         format.json { render json: @patient, status: :created, location: @patient }
       else
         format.html { render action: "new" }

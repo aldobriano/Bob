@@ -1,6 +1,6 @@
 <style>
 body {
-  padding-top: 40px;
+  
   padding-bottom: 40px;
   background-color: #eee;
 }
@@ -41,29 +41,12 @@ body {
 }
 </style>
 
-<script>
-function login()
-{
-  var email = $("#email").val();
-  var password = $("#password").val();
-  $.ajax({
-      type: "POST",
-      url: "/users/login",
-      data: "email=" + email + "&password="+ password, 
-      dataType: "json",   
-      success:function(json){
-        console.log(json);
-      }
-    });
-}
-</script>
+
 
 <form class="form-signin" action='/users/login' autocomplete="off" method='POST'>
   <h2 class="form-signin-heading">Please sign in</h2>
   <input type="text" name="email" class="form-control" placeholder="Email address" id="email" autofocus>
   <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-  <label class="checkbox">
-    <input type="checkbox" value="remember-me"> Remember me
-  </label>
+  
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
