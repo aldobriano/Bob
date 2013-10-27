@@ -74,7 +74,7 @@ class Device < ActiveRecord::Base
 	  			last_weight_measure_lbs = last_weight_measure.to_f * 2.2
 	  		end
 	  		number_of_records = json["CurrentRecordCount"]
-	  		to_return = {:weight => last_weight_measure_lbs}
+	  		to_return = {:weight => last_weight_measure_lbs.round(2)}
 
 
 	  		if(number_of_records.to_i > 5)
@@ -84,9 +84,9 @@ class Device < ActiveRecord::Base
 	  			difference = difference * 2.2 if weight_unit.to_i == 0
 	  			if(difference > 0)
 	  				
-	  				to_return[:incremental] = difference 
+	  				to_return[:incremental] = difference.round(2)
 	  			else
-	  				to_return[:decremental] = difference.abs 
+	  				to_return[:decremental] = difference.abs.round(2) 
 	  			end
 	  		end
 
@@ -140,20 +140,22 @@ class Device < ActiveRecord::Base
   	end
   end
 
-	def list_of_supported_devices
+	def self.list_of_supported_devices
 		devices = []
-		devices << {:name => "",
-			:description => "",
-			:image => "",
+		devices << {:name => "Wireless Blood Pressure Monitor",
+			:description => "With no plugs or connections to manage, our Wireless Blood Pressure Monitor makes it easy to check your own blood pressure, anytime and anywhere.  Measure and track your systolic/diastolic numbers, heart rate, pulse wave and measurement time.",
+			:image => "assets/ihealth_bp.jpg",
 			:device_type => "OpenApiBP", 
-			:buy_link => "",
+			:buy_link => "http://store.ihealthlabs.com/clientaddtocart.html?id=32",
+			:company => "iHealth"
 		}
 
-		devices << {:name => "",
-			:description => "",
-			:image => "",
+		devices << {:name => "Wireless Body Analysis Scale",
+			:description => "The Wireless Body Analysis Scale can measure, track and share 9 different characteristics of your body composition: weight, body fat, lean mass, muscle mass, bone mass, body water, daily calorie intake, boday mass index, and visceral fat rating.  You can use it online or off.  ",
+			:image => "assets/ihealth_weight.jpg",
 			:device_type => "OpenApiWeight", 
-			:buy_link => "",
+			:buy_link => "http://store.ihealthlabs.com/clientaddtocart.html?id=27",
+			:company => "iHealth"
 		}
 
 		return devices

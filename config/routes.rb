@@ -12,6 +12,9 @@ Red::Application.routes.draw do
 
   match "devices/callback" => "devices#callback"
 
+  match "devices/" => "devices#index"
+  match "devices/add" => "devices#create"
+
   match "/" => "pages#home"
   root              :to => "pages#home"
   # The priority is based upon order of creation:

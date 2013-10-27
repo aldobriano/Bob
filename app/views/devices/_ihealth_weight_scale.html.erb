@@ -2,12 +2,23 @@
 <h2> Weight </h2>
 </div>
 <div class="row" style="float:right;">
-	<a href="#">Edit Alarms (Coming Soon)</a>
+	<a href="#">Edit Alarms </a>
 </div>
 <br />
 <br />
+<% data = device.get_data_from_device %>
 <div class="row">
-  <div class="col-xs-6"><span style="font-size:50px;">150</span></div>
-  <div class="col-xs-6"><%= image_tag("arrow_down.png", :style => "vertical-align:top;") %> <span style="font-size:50px;">0.2</span></div>
+  <div class="col-xs-6"><span style="font-size:50px;">
+  	<% if data[:weight].present? %>
+  	  <%= data[:weight].to_s %></span></div>
+  	<% else %>
+  		No data has been collected at this device.
+  	<% end %>
+  <% if data[:incremental].present? %>
+	  <div class="col-xs-6"><span class="glyphicon glyphicon-chevron-up"></span> <span style="font-size:50px;"><%= data[:incremental].to_s %></span></div>
+  <% elsif data[:decremental].present? %>
+  	<div class="col-xs-6"><span class="glyphicon glyphicon-chevron-down"></span> <span style="font-size:50px;"><%= data[:decremental].to_s %></span></div>
+
+  <% end %>
 </div>
 <br />

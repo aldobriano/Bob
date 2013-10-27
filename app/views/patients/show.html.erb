@@ -152,7 +152,7 @@ function performAction(action)
 	<br />
 <% end %>
 
-<center><a href="#"><%= image_tag("add_icon.png", width:'40') %>Add other devices</a></center>
+<center><a href="/devices?patient_id=<%= @patient.id %>"><%= image_tag("add_icon.png", width:'40') %>Add other devices</a></center>
 <br />
 <br />
 <div class="row" style="float:right;">
