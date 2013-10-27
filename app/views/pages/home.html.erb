@@ -39,17 +39,38 @@
     margin-top: 120px;
   }
 }
+.bg-image {
+    position: relative;
+}
+.bg-image img {
+    display: block;
+    width: 100%;
+    max-width: 1200px; /* corresponds to max height of 450px */
+    margin: 0 auto;
+}
+.bg-image h1 {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+}
+.nav, .main {
+    background-color: #f6f6f6;
+    text-align: center;
+}
 </style>
 
 
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <!-- Indicators -->
+    <!-- <div id="myCarousel" class="carousel slide">
+      
       
       <div class="carousel-inner">
         <div class="item active">
-          <img src="/assets/banner_home.jpg" alt="Living life as a Heart Failure Patient">
+          <img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Meet Bob</h1>
@@ -61,7 +82,19 @@
         
       </div>
      
-    </div><!-- /.carousel -->
+    </div> -->
+    <div class="container">
+      <div class="row-fluid">
+          <div class="span12">
+              <div class="nav">nav area</div>
+              <div class="bg-image">
+                  <img src="http://unplugged.ee/wp-content/uploads/2013/03/frank2.jpg">
+                   <h1>This is centered text.</h1>
+              </div>
+              <div class="main">main area</div>
+          </div>
+      </div>
+    </div>
 
 
 
