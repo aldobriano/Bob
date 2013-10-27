@@ -140,6 +140,26 @@ class Device < ActiveRecord::Base
   	end
   end
 
+	def list_of_supported_devices
+		devices = []
+		devices << {:name => "",
+			:description => "",
+			:image => "",
+			:device_type => "OpenApiBP", 
+			:buy_link => "",
+		}
+
+		devices << {:name => "",
+			:description => "",
+			:image => "",
+			:device_type => "OpenApiWeight", 
+			:buy_link => "",
+		}
+
+		return devices
+
+  end
+
  def self.food_yiftee_token
  	return "ee8201d264adf7cdb60e4a0de478bf8b13"
  end

@@ -31,6 +31,12 @@ class DevicesController < ApplicationController
 	def create
 		##create the device
 		## send to oauth
+		## somehow get a device
+
+		redirect_to device.get_url_for_device_authorization
+	end
+
+	def index
 
 	end
 end

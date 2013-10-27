@@ -45,7 +45,7 @@ body {
 <% end %>
 
 <form class="form-signin" action='/users/create' autocomplete="off" method='POST'>
-  <h2 class="form-signin-heading">Sign up</h2>
+  <h2 class="form-signin-heading">Sign up as a Caregiver</h2>
   <!-- ADD HERE THE PATIENTS ID IF IT CAME FROM A REFERRAL -->
   <% if @patient.present? %>
     <input type='hidden' name='patient_id' value='<%= @patient.id %>' />
@@ -57,9 +57,6 @@ body {
   <label class="checkbox">
     <input type="checkbox" value="remember-me"> Check if remote caregiver?
   </label>
-  <label class="checkbox">
-    Relationship with the patient?
-     <input type="text" name="relationship" class="form-control" placeholder="Spouse/Child/Family/Friend/HealthCareProfessional?" id="relationship" autofocus>
-  </label>
+ 
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 </form>

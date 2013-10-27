@@ -1,5 +1,8 @@
 Red::Application.routes.draw do
-  resources :patients
+  get  "patients/new" => "patients#new"
+  get "patients/:id" => "patients#show"
+  post "patients" => "patients#create"
+
   get "signup" => "users#signup"
   post "users/login" => "users#do_login"
   get "login" =>  "users#login"
@@ -9,6 +12,8 @@ Red::Application.routes.draw do
 
   match "devices/callback" => "devices#callback"
 
+  match "/" => "pages#home"
+  root              :to => "pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
