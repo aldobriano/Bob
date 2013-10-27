@@ -1,0 +1,36 @@
+<div class="row">
+<h2> Blood Pressure </h2>
+</div>
+<div class="row" style="float:right;">
+	<a href="#">Edit Alarms (Coming Soon)</a>
+</div>
+<br />
+<% data = device.get_data_from_device %>
+Systolic:<div class="progress">
+
+<% if data[:s_bp].to_i < 120 && data[:s_bp].to_i > 1 %>
+  <% progress_bp_color = "progress-bar-success" %>
+<% elsif data[:s_bp].to_i < 140 %>
+  <% progress_bp_color = "progress-bar-warning" %>
+<% else %>
+  <% progress_bp_color = "progress-bar-danger" %>
+<% end %>
+  <div class="progress-bar <%= progress_bp_color %>" role="progressbar" aria-valuenow="<%= data[:s_bp] %>" aria-valuemin="0" aria-valuemax="180" style="width: <%= data[:s_bp].to_f / 180.0 * 100.0 %>%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+Diastolic:
+<% if data[:d_bp].to_i < 80 && data[:d_bp].to_i > 1 %>
+  <% progress_s_bp_color = "progress-bar-success" %>
+<% elsif data[:d_bp].to_i < 90 %>
+  <% progress_s_bp_color = "progress-bar-warning" %>
+<% else %>
+  <% progress_s_bp_color = "progress-bar-danger" %>
+<% end %>
+<div class="progress">
+  <div class="progress-bar <%= progress_s_bp_color %>" role="progressbar" aria-valuenow="<%= data[:d_bp] %>" aria-valuemin="0" aria-valuemax="180" style="width: <%= data[:d_bp].to_f / 180.0 * 100.0 %>%">
+    <span class="sr-only">20% Complete</span>
+  </div>
+</div>
+
+<br />

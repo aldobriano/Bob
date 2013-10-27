@@ -7,6 +7,8 @@ Red::Application.routes.draw do
   get "users/invite" => "users#invite"
   post "users/send_invitation" => "users#send_invitation"
 
+  match "devices/callback" => "devices#callback"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

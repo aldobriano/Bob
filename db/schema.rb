@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026175548) do
+ActiveRecord::Schema.define(:version => 20131027004811) do
+
+  create_table "devices", :force => true do |t|
+    t.integer  "patient_id"
+    t.string   "access_token"
+    t.integer  "max_threshold"
+    t.integer  "min_threshold"
+    t.string   "device_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "api_user_id"
+  end
 
   create_table "patients", :force => true do |t|
     t.string   "name"

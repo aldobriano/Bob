@@ -14,7 +14,8 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-
+    @advice = @patient.get_advice
+    @devices = Device.where(:patient_id => @patient.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @patient }
@@ -26,7 +27,7 @@ class PatientsController < ApplicationController
   def new
 
     @patient = Patient.new
-
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @patient }
